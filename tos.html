@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Room - Правила користування / Terms of Service</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --accent: #c8a96e;
+    --accent-dim: rgba(200,169,110,0.12);
+    --text: #e8e4dc;
+    --muted: #7a7570;
+    --warn: #d4715a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .logo-sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active,
+  .lang-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 3.5rem;
+  }
+
+  .meta-item {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-value {
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  /* language sections */
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: var(--accent);
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  h2 .num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 2rem 0 0.8rem;
+  }
+
+  p {
+    margin-bottom: 0.9rem;
+    font-size: 0.95rem;
+    color: #c8c4bc;
+  }
+
+  .clause {
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+    color: #c8c4bc;
+    padding-left: 1.8rem;
+    position: relative;
+  }
+
+  .clause::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+    top: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul.list {
+    list-style: none;
+    margin: 0.5rem 0 1rem;
+  }
+
+  ul.list li {
+    font-size: 0.95rem;
+    color: #c8c4bc;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+  }
+
+  ul.list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  .warn-box {
+    border: 1px solid var(--warn);
+    background: rgba(212,113,90,0.06);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #e8c8c0;
+    line-height: 1.6;
+  }
+
+  .warn-box strong {
+    display: block;
+    color: var(--warn);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .accent-box {
+    border-left: 2px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 1rem 1.4rem;
+    margin: 1.2rem 0;
+    font-size: 0.9rem;
+    color: #d8d0c0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  th {
+    text-align: left;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+  }
+
+  td {
+    padding: 0.7rem 1rem;
+    color: #c0bcb4;
+    border-bottom: 1px solid rgba(42,42,42,0.6);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.015); }
+
+  .contact-block {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .contact-block .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 600px) {
+    .meta { grid-template-columns: 1fr; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.5rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">DARK ROOM</div>
+  <div class="logo-sub">Правила користування &nbsp;/&nbsp; Terms of Service</div>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('uk')">🇺🇦 Українська</button>
+    <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="meta">
+    <div class="meta-item">
+      <div class="meta-label">Версія / Version</div>
+      <div class="meta-value">1.0</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Набрання чинності</div>
+      <div class="meta-value">2025-07-01</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Контакт</div>
+      <div class="meta-value">supportdarkroom@gmail.com</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ UKRAINIAN ═══════════ -->
+  <div class="lang-section active" id="lang-uk">
+
+    <h2><span class="num">01</span>Загальні положення</h2>
+    <div class="clause" data-num="1.1">Dark Room («Бот», «Сервіс») - це Telegram-бот, що надає платформу для знаходження компанії на спільне відвідування заходів та знайомства з людьми в цьому контексті.</div>
+    <div class="clause" data-num="1.2">Використовуючи Бот, ви підтверджуєте, що прочитали, зрозуміли та погоджуєтесь з цими Правилами. Якщо ви не погоджуєтесь - будь ласка, припиніть користуватися Сервісом.</div>
+    <div class="clause" data-num="1.3">Ми залишаємо за собою право змінювати ці Правила в будь-який час. Про суттєві зміни ви будете повідомлені через Бот.</div>
+
+    <h2><span class="num">02</span>Вікові обмеження</h2>
+    <div class="warn-box">
+      <strong>⚠ Важливо</strong>
+      Сервіс призначений виключно для осіб, яким виповнилося 18 років. Реєструючись, ви підтверджуєте свій вік.
+    </div>
+    <div class="clause" data-num="2.2">Якщо ми встановимо, що користувачу немає 18 років, його акаунт буде негайно заблокований без попередження.</div>
+    <div class="clause" data-num="2.3">Якщо вам відомо про використання Сервісу особою молодше 18 років - будь ласка, повідомте нам: supportdarkroom@gmail.com.</div>
+
+    <h2><span class="num">03</span>Реєстрація та акаунт</h2>
+    <div class="clause" data-num="3.1">Для використання Сервісу необхідно створити профіль з фото, іменем та коротким описом.</div>
+    <div class="clause" data-num="3.2">Ви несете повну відповідальність за достовірність інформації у своєму профілі.</div>
+    <div class="clause" data-num="3.3">Заборонено реєструватись від імені іншої особи, створювати фейкові або множинні акаунти.</div>
+    <div class="clause" data-num="3.4">Ви відповідаєте за безпеку свого Telegram-акаунту, через який здійснюється доступ до Сервісу.</div>
+
+    <h2><span class="num">04</span>Правила поведінки та заборонений контент</h2>
+    <p>Використовуючи Сервіс, ви погоджуєтесь <strong>не</strong>:</p>
+    <ul class="list">
+      <li>публікувати фото або описи сексуального, еротичного чи відвертого характеру;</li>
+      <li>публікувати зображення осіб молодше 18 років у будь-якому неприйнятному контексті;</li>
+      <li>публікувати контент, що містить мову ненависті або дискримінацію;</li>
+      <li>переслідувати, залякувати або погрожувати іншим користувачам;</li>
+      <li>розповсюджувати спам або небажані комерційні повідомлення;</li>
+      <li>публікувати особисті дані інших людей без їхньої згоди (доксинг);</li>
+      <li>видавати себе за іншу особу або організацію;</li>
+      <li>використовувати Сервіс для незаконної діяльності;</li>
+      <li>намагатися зламати або пошкодити технічну інфраструктуру Сервісу;</li>
+      <li>використовувати автоматизовані скрипти або ботів для масових дій.</li>
+    </ul>
+
+    <h2><span class="num">05</span>Контент користувачів</h2>
+    <div class="clause" data-num="5.1">Ви зберігаєте всі права на контент, який публікуєте (фото, текст, посилання).</div>
+    <div class="clause" data-num="5.2">Публікуючи контент, ви надаєте Сервісу невиключну, безоплатну ліцензію на його використання виключно в межах функціонування Сервісу.</div>
+    <div class="clause" data-num="5.3">Ви підтверджуєте, що маєте всі необхідні права на публікацію завантажуваного контенту.</div>
+    <div class="clause" data-num="5.4">Ми залишаємо за собою право видаляти будь-який контент, що порушує ці Правила, без попередження.</div>
+
+    <h2><span class="num">06</span>Модерація</h2>
+    <div class="clause" data-num="6.1">Всі нові анкети та події проходять перевірку адміністраторами перед публікацією.</div>
+    <div class="clause" data-num="6.2">При блокуванні за конкретне порушення користувач отримує повідомлення з причиною та можливістю виправити контент і подати його на повторний розгляд.</div>
+    <div class="clause" data-num="6.3">Заблокований користувач може оскаржити рішення через supportdarkroom@gmail.com.</div>
+
+    <h2><span class="num">07</span>Події та платежі</h2>
+    <div class="clause" data-num="7.1">Розміщення події на термін більше 15 днів від поточної дати є платною послугою.</div>
+    <div class="clause" data-num="7.2">Оплата здійснюється одноразово за кожну таку подію.</div>
+    <div class="warn-box">
+      <strong>⚠ Умови оплати</strong>
+      Повернення коштів можливе лише у разі скасування або блокування події адміністраторами. У разі добровільної відмови від вже опублікованої події повернення не передбачено.
+    </div>
+    <div class="clause" data-num="7.4">Ми не несемо відповідальності за технічні збої платіжної системи.</div>
+
+    <h2><span class="num">08</span>Знайомства та особиста безпека</h2>
+    <div class="clause" data-num="8.1">Dark Room - це платформа для знаходження компанії на заходи, а не сервіс перевірки особистостей.</div>
+    <div class="clause" data-num="8.2">Ми не перевіряємо справжню особу користувачів і не несемо відповідальності за їхні дії поза межами Сервісу.</div>
+    <div class="accent-box">
+      <strong>Правила особистої безпеки:</strong><br>
+      зустрічайтеся вперше у публічних місцях · повідомляйте близьких про свої плани · не передавайте фінансову інформацію до встановлення довіри
+    </div>
+    <div class="clause" data-num="8.4">Контакт іншого користувача надається виключно після взаємного лайку - жодних примусових контактів.</div>
+
+    <h2><span class="num">09</span>Статус платформи-посередника</h2>
+    <div class="warn-box">
+      <strong>⚠ Важливе застереження</strong>
+      Dark Room є виключно технічною платформою-посередником. Весь контент у Сервісі - анкети, описи, фотографії, події, посилання - створюється та публікується виключно користувачами. Автори та оператори Сервісу не є авторами, редакторами, розповсюджувачами або співавторами будь-якого контенту користувачів і не несуть відповідальності за його зміст, достовірність, законність або наслідки його використання.
+    </div>
+    <div class="clause" data-num="9.1">Сервіс надає лише технічну інфраструктуру для публікації та перегляду контенту. Будь-яка інформація, розміщена користувачами, відображає виключно їхню особисту думку та дії.</div>
+    <div class="clause" data-num="9.2">Ми здійснюємо модерацію контенту відповідно до цих Правил, однак модерація не означає редакційного контролю або схвалення контенту з нашого боку.</div>
+    <div class="clause" data-num="9.3">Якщо вам стало відомо про незаконний або такий, що порушує Правила контент - негайно повідомте нам через supportdarkroom@gmail.com або кнопку «Поскаржитись». Ми зобов'язуємось розглянути скаргу та вжити відповідних заходів.</div>
+
+    <h2><span class="num">10</span>Відмова від відповідальності</h2>
+    <div class="clause" data-num="10.1">Сервіс надається «як є» без будь-яких явних або неявних гарантій щодо безперервності роботи, точності, повноти або придатності для конкретних цілей.</div>
+    <p>Оператор Сервісу не несе відповідальності за:</p>
+    <ul class="list">
+      <li>достовірність, законність або якість будь-якого контенту, розміщеного користувачами;</li>
+      <li>будь-які збитки - прямі, непрямі, випадкові або наслідкові - що виникли внаслідок використання Сервісу;</li>
+      <li>будь-які збитки від спілкування, зустрічей або будь-яких інших взаємодій між користувачами поза межами Сервісу;</li>
+      <li>дії, бездіяльність або контент третіх осіб, включаючи Telegram, платіжних провайдерів та зовнішні сайти за посиланнями з Сервісу;</li>
+      <li>тимчасову або постійну недоступність Сервісу з будь-яких технічних причин;</li>
+      <li>втрату даних внаслідок технічних збоїв;</li>
+      <li>рішення, прийняті користувачами на підставі інформації з Сервісу.</li>
+    </ul>
+    <div class="clause" data-num="10.2">Максимальна відповідальність Сервісу перед будь-яким користувачем обмежена сумою, фактично сплаченою цим користувачем за останні 3 місяці.</div>
+    <div class="clause" data-num="10.3">Деякі юрисдикції не допускають обмеження відповідальності за певні види збитків. У таких випадках зазначені обмеження застосовуються в максимально дозволеному обсязі.</div>
+
+    <h2><span class="num">11</span>Захист від претензій третіх осіб</h2>
+    <div class="clause" data-num="11.1">Ви погоджуєтесь захищати, відшкодовувати збитки та звільняти від відповідальності Сервіс, його операторів та партнерів від будь-яких претензій, збитків, витрат і зобов'язань, що виникли внаслідок: (а) порушення вами цих Правил; (б) контенту, який ви розмістили; (в) ваших взаємодій з іншими користувачами.</div>
+
+    <h2><span class="num">12</span>Видалення акаунту</h2>
+    <div class="clause" data-num="12.1">Ви можете видалити свій акаунт і всі пов'язані дані в будь-який момент через команду <code>/delete_account</code>.</div>
+    <div class="clause" data-num="12.2">Після видалення дані не підлягають відновленню.</div>
+    <div class="clause" data-num="12.3">Видалення акаунту не тягне за собою повернення сплачених коштів.</div>
+
+    <h2><span class="num">13</span>Застосовне право</h2>
+    <div class="clause" data-num="13.1">Ці Правила регулюються законодавством України.</div>
+    <div class="clause" data-num="13.2">Всі суперечки вирішуються шляхом переговорів або у відповідному суді.</div>
+
+    <div class="contact-block">
+      <div class="label">Питання щодо цих Правил</div>
+      <a href="mailto:supportdarkroom@gmail.com">supportdarkroom@gmail.com</a>
+    </div>
+
+  </div><!-- /lang-uk -->
+
+  <!-- ═══════════ ENGLISH ═══════════ -->
+  <div class="lang-section" id="lang-en">
+
+    <h2><span class="num">01</span>General Provisions</h2>
+    <div class="clause" data-num="1.1">Dark Room ("Bot", "Service") is a Telegram bot providing a platform to find companions for attending events and meeting people in that context.</div>
+    <div class="clause" data-num="1.2">By using the Bot, you confirm that you have read, understood, and agree to these Terms. If you do not agree - please stop using the Service.</div>
+    <div class="clause" data-num="1.3">We reserve the right to modify these Terms at any time. You will be notified of significant changes through the Bot.</div>
+
+    <h2><span class="num">02</span>Age Restrictions</h2>
+    <div class="warn-box">
+      <strong>⚠ Important</strong>
+      The Service is intended exclusively for persons who are 18 years of age or older. By registering, you confirm your age.
+    </div>
+    <div class="clause" data-num="2.2">If we determine that a user is under 18, their account will be immediately blocked without notice.</div>
+    <div class="clause" data-num="2.3">If you are aware of a person under 18 using the Service, please notify us: supportdarkroom@gmail.com.</div>
+
+    <h2><span class="num">03</span>Registration and Account</h2>
+    <div class="clause" data-num="3.1">To use the Service, you must create a profile with a photo, name, and short description.</div>
+    <div class="clause" data-num="3.2">You are solely responsible for the accuracy of the information in your profile.</div>
+    <div class="clause" data-num="3.3">It is prohibited to register on behalf of another person or to create fake or multiple accounts.</div>
+    <div class="clause" data-num="3.4">You are responsible for the security of your Telegram account used to access the Service.</div>
+
+    <h2><span class="num">04</span>Rules of Conduct and Prohibited Content</h2>
+    <p>By using the Service, you agree <strong>not</strong> to:</p>
+    <ul class="list">
+      <li>post photos or descriptions of a sexual, erotic, or explicit nature;</li>
+      <li>post images depicting persons under 18 in any inappropriate context;</li>
+      <li>post content containing hate speech or discrimination;</li>
+      <li>harass, intimidate, or threaten other users;</li>
+      <li>distribute spam or unsolicited commercial messages;</li>
+      <li>post personal data of others without their consent (doxxing);</li>
+      <li>impersonate another person or organization;</li>
+      <li>use the Service for any illegal activity;</li>
+      <li>attempt to hack or damage the technical infrastructure of the Service;</li>
+      <li>use automated scripts or bots for mass actions within the Service.</li>
+    </ul>
+
+    <h2><span class="num">05</span>User Content</h2>
+    <div class="clause" data-num="5.1">You retain all rights to the content you post (photos, text, links).</div>
+    <div class="clause" data-num="5.2">By posting content, you grant the Service a non-exclusive, royalty-free license to use it solely within the functioning of the Service.</div>
+    <div class="clause" data-num="5.3">You confirm that you have all necessary rights to publish the content you upload.</div>
+    <div class="clause" data-num="5.4">We reserve the right to remove any content that violates these Terms without notice.</div>
+
+    <h2><span class="num">06</span>Moderation</h2>
+    <div class="clause" data-num="6.1">All new profiles and events are reviewed by administrators before publication.</div>
+    <div class="clause" data-num="6.2">When blocked for a specific violation, the user receives a message with the reason and the opportunity to correct the content and resubmit for review.</div>
+    <div class="clause" data-num="6.3">A blocked user may appeal the decision via supportdarkroom@gmail.com.</div>
+
+    <h2><span class="num">07</span>Events and Payments</h2>
+    <div class="clause" data-num="7.1">Posting an event more than 15 days from the current date is a paid service.</div>
+    <div class="clause" data-num="7.2">Payment is made on a one-time basis per such event.</div>
+    <div class="warn-box">
+      <strong>⚠ Payment Terms</strong>
+      Refunds are available only if the event is cancelled or blocked by administrators. No refund is issued for voluntary withdrawal after an event has been published.
+    </div>
+    <div class="clause" data-num="7.4">We are not responsible for technical failures of the payment system.</div>
+
+    <h2><span class="num">08</span>Dating and Personal Safety</h2>
+    <div class="clause" data-num="8.1">Dark Room is a platform for finding companions at events, not a personal identity verification service.</div>
+    <div class="clause" data-num="8.2">We do not verify the true identity of users and are not responsible for their actions outside the Service.</div>
+    <div class="accent-box">
+      <strong>Personal safety guidelines:</strong><br>
+      meet for the first time in public places · inform someone you trust about your plans · do not share financial information until trust is established
+    </div>
+    <div class="clause" data-num="8.4">Another user's contact is only shared after a mutual like - no forced contacts.</div>
+
+    <h2><span class="num">09</span>Intermediary Platform Status</h2>
+    <div class="warn-box">
+      <strong>⚠ Important Notice</strong>
+      Dark Room is solely a technical intermediary platform. All content in the Service - profiles, descriptions, photos, events, links - is created and published exclusively by users. The authors and operators of the Service are not the authors, editors, distributors, or co-authors of any user content and are not responsible for its substance, accuracy, legality, or consequences of its use.
+    </div>
+    <div class="clause" data-num="9.1">The Service provides only technical infrastructure for publishing and viewing content. Any information posted by users reflects solely their personal views and actions.</div>
+    <div class="clause" data-num="9.2">We moderate content in accordance with these Terms; however, moderation does not constitute editorial control or endorsement of any content on our part.</div>
+    <div class="clause" data-num="9.3">If you become aware of illegal or rule-violating content - please notify us immediately via supportdarkroom@gmail.com or the "Report" button. We commit to reviewing the complaint and taking appropriate action.</div>
+
+    <h2><span class="num">10</span>Disclaimer of Liability</h2>
+    <div class="clause" data-num="10.1">The Service is provided "as is" without any express or implied warranties regarding continuity of operation, accuracy, completeness, or fitness for a particular purpose.</div>
+    <p>The Service operator is not responsible for:</p>
+    <ul class="list">
+      <li>the accuracy, legality, or quality of any content posted by users;</li>
+      <li>any damages - direct, indirect, incidental, or consequential - arising from use of the Service;</li>
+      <li>any damages from communication, meetings, or any other interactions between users outside the Service;</li>
+      <li>actions, inactions, or content of third parties, including Telegram, payment providers, and external sites linked from the Service;</li>
+      <li>temporary or permanent unavailability of the Service for any technical reason;</li>
+      <li>loss of data due to technical failures;</li>
+      <li>decisions made by users based on information from the Service.</li>
+    </ul>
+    <div class="clause" data-num="10.2">The maximum liability of the Service to any user is limited to the amount actually paid by that user in the last 3 months.</div>
+    <div class="clause" data-num="10.3">Some jurisdictions do not allow limitations of liability for certain types of damages. In such cases, the limitations apply to the maximum extent permitted.</div>
+
+    <h2><span class="num">11</span>Indemnification</h2>
+    <div class="clause" data-num="11.1">You agree to defend, indemnify, and hold harmless the Service, its operators and partners from any claims, damages, costs, and liabilities arising from: (a) your violation of these Terms; (b) content you have posted; (c) your interactions with other users.</div>
+
+    <h2><span class="num">12</span>Account Deletion</h2>
+    <div class="clause" data-num="12.1">You may delete your account and all associated data at any time using the <code>/delete_account</code> command.</div>
+    <div class="clause" data-num="12.2">Data cannot be recovered after deletion.</div>
+    <div class="clause" data-num="12.3">Account deletion does not entail a refund of payments made.</div>
+
+    <h2><span class="num">13</span>Governing Law</h2>
+    <div class="clause" data-num="13.1">These Terms are governed by the laws of Ukraine.</div>
+    <div class="clause" data-num="13.2">All disputes shall be resolved through negotiation or in the appropriate court.</div>
+
+    <div class="contact-block">
+      <div class="label">Questions about these Terms</div>
+      <a href="mailto:supportdarkroom@gmail.com">supportdarkroom@gmail.com</a>
+    </div>
+
+  </div><!-- /lang-en -->
+
+</div><!-- /container -->
+
+<footer>
+  Dark Room &nbsp;·&nbsp; Terms of Service v1.0 &nbsp;·&nbsp; 2025
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

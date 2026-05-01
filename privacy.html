@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Room - Політика конфіденційності / Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --accent: #c8a96e;
+    --accent-dim: rgba(200,169,110,0.12);
+    --text: #e8e4dc;
+    --muted: #7a7570;
+    --warn: #d4715a;
+    --info: #5a8fd4;
+    --info-dim: rgba(90,143,212,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .logo-sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active, .lang-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 3.5rem;
+  }
+
+  .meta-item {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-value { font-size: 0.88rem; color: var(--text); }
+
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: var(--accent);
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 .num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 2rem 0 0.8rem;
+  }
+
+  p { margin-bottom: 0.9rem; font-size: 0.95rem; color: #c8c4bc; }
+
+  .clause {
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+    color: #c8c4bc;
+    padding-left: 1.8rem;
+    position: relative;
+  }
+
+  .clause::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+    top: 0.15rem;
+  }
+
+  ul.list { list-style: none; margin: 0.5rem 0 1rem; }
+
+  ul.list li {
+    font-size: 0.95rem;
+    color: #c8c4bc;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+  }
+
+  ul.list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  .warn-box {
+    border: 1px solid var(--warn);
+    background: rgba(212,113,90,0.06);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #e8c8c0;
+    line-height: 1.6;
+  }
+
+  .warn-box strong {
+    display: block;
+    color: var(--warn);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-box {
+    border: 1px solid var(--info);
+    background: var(--info-dim);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #c0d4e8;
+    line-height: 1.6;
+  }
+
+  .info-box strong {
+    display: block;
+    color: var(--info);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  th {
+    text-align: left;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+  }
+
+  td {
+    padding: 0.7rem 1rem;
+    color: #c0bcb4;
+    border-bottom: 1px solid rgba(42,42,42,0.6);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.015); }
+
+  .rights-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 1rem 0 1.5rem;
+  }
+
+  .right-item {
+    background: var(--surface);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+  }
+
+  .right-name {
+    padding: 0.8rem 1rem;
+    border-right: 1px solid var(--border);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .right-how {
+    padding: 0.8rem 1rem;
+    font-size: 0.82rem;
+    color: #b0acA4;
+  }
+
+  .contact-block {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .contact-block .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 600px) {
+    .meta { grid-template-columns: 1fr; }
+    .right-item { grid-template-columns: 1fr; }
+    .right-name { border-right: none; border-bottom: 1px solid var(--border); }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.5rem 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">DARK ROOM</div>
+  <div class="logo-sub">Політика конфіденційності &nbsp;/&nbsp; Privacy Policy</div>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('uk', this)">🇺🇦 Українська</button>
+    <button class="lang-btn" onclick="setLang('en', this)">🇬🇧 English</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="meta">
+    <div class="meta-item">
+      <div class="meta-label">Версія / Version</div>
+      <div class="meta-value">1.0</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Набрання чинності</div>
+      <div class="meta-value">2025-07-01</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Контакт</div>
+      <div class="meta-value">supportdarkroom@gmail.com</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ UKRAINIAN ═══════════ -->
+  <div class="lang-section active" id="lang-uk">
+
+    <h2><span class="num">01</span>Хто ми</h2>
+    <p>Dark Room («Оператор», «Ми») - незалежний Telegram-бот. Контактна адреса для питань щодо персональних даних: <strong>supportdarkroom@gmail.com</strong> (Telegram).</p>
+
+    <h2><span class="num">02</span>Які дані ми збираємо</h2>
+
+    <h3>Дані, які ви надаєте безпосередньо</h3>
+    <table>
+      <tr><th>Тип даних</th><th>Де використовується</th></tr>
+      <tr><td>Telegram user ID та username</td><td>Ідентифікація, зв'язок після match</td></tr>
+      <tr><td>Ім'я (введене вами)</td><td>Профіль, відображення іншим</td></tr>
+      <tr><td>Короткий опис (bio)</td><td>Профіль</td></tr>
+      <tr><td>Фото профілю (1–3 шт.)</td><td>Зберігається як Telegram file_id</td></tr>
+      <tr><td>Підтвердження повноліття + час</td><td>Правова вимога, не відображається іншим</td></tr>
+      <tr><td>Час прийняття Правил</td><td>Правова вимога</td></tr>
+      <tr><td>Обрана мова інтерфейсу</td><td>Персоналізація</td></tr>
+    </table>
+
+    <h3>Дані про ваші дії</h3>
+    <table>
+      <tr><th>Тип даних</th><th>Де використовується</th></tr>
+      <tr><td>Реєстрації на події</td><td>Розділ «Мої події», формування груп для знайомств</td></tr>
+      <tr><td>Лайки та паси</td><td>Пошук матчів, не відображаються іншим окремо</td></tr>
+      <tr><td>Матчі</td><td>Надсилання взаємного контакту</td></tr>
+      <tr><td>Створені події</td><td>Відображення в каталозі</td></tr>
+      <tr><td>Скарги</td><td>Модерація</td></tr>
+    </table>
+
+    <h3>Дані платежів</h3>
+    <p>Ми зберігаємо: order_id, суму, статус та час платежу.</p>
+    <div class="info-box">
+      <strong>ℹ Важливо</strong>
+      Ми не зберігаємо і не маємо доступу до платіжних реквізитів. Транзакції обробляються платіжним провайдером відповідно до його політики конфіденційності.
+    </div>
+
+    <h3>Дані, які ми НЕ збираємо</h3>
+    <ul class="list">
+      <li>номер вашого телефону (Telegram не передає його ботам);</li>
+      <li>точна геолокація в реальному часі;</li>
+      <li>вміст приватних повідомлень поза діалогом з ботом;</li>
+      <li>будь-які дані за межами взаємодії з ботом.</li>
+    </ul>
+
+    <h2><span class="num">03</span>Для чого ми використовуємо дані</h2>
+    <table>
+      <tr><th>Мета</th><th>Правова підстава</th></tr>
+      <tr><td>Надання функцій Сервісу</td><td>Виконання договору (ст. 6(1)(b) GDPR)</td></tr>
+      <tr><td>Модерація та безпека</td><td>Законний інтерес оператора</td></tr>
+      <tr><td>Підтвердження повноліття та згоди</td><td>Юридичний обов'язок</td></tr>
+      <tr><td>Обробка платежів</td><td>Виконання договору</td></tr>
+      <tr><td>Надсилання сповіщень</td><td>Виконання договору</td></tr>
+    </table>
+    <p>Ми <strong>не</strong> використовуємо ваші дані для таргетованої реклами, продажу третім особам або автоматизованого прийняття рішень з юридичними наслідками.</p>
+
+    <h2><span class="num">04</span>Кому ми передаємо дані</h2>
+
+    <h3>Іншим користувачам</h3>
+    <p>Ваше ім'я, фото та bio - видимі у контексті спільних подій. Ваш Telegram username - передається лише тій особі, з якою ви отримали взаємний лайк.</p>
+
+    <h3>Технічним підрядникам</h3>
+    <table>
+      <tr><th>Підрядник</th><th>Мета</th><th>Країна</th></tr>
+      <tr><td>Hetzner Online GmbH</td><td>Хостинг серверів і БД</td><td>Німеччина / ЄС</td></tr>
+      <tr><td>Telegram Messenger Inc.</td><td>Платформа доставки повідомлень та обробка платежів</td><td>США / ЄС</td></tr>
+    </table>
+
+    <h3>Правоохоронним органам</h3>
+    <p>Ми можемо розкрити дані на законну вимогу компетентних органів відповідно до чинного законодавства.</p>
+
+    <h2><span class="num">05</span>Зберігання та захист даних</h2>
+    <p>Дані зберігаються на захищених серверах у межах ЄС (Hetzner, Німеччина). Ми застосовуємо шифрування з'єднань (TLS), обмежений доступ до БД та регулярні резервні копії.</p>
+
+    <h3>Терміни зберігання</h3>
+    <table>
+      <tr><th>Тип даних</th><th>Термін</th></tr>
+      <tr><td>Дані активного профілю</td><td>До видалення акаунту</td></tr>
+      <tr><td>Лайки / паси</td><td>7 днів</td></tr>
+      <tr><td>Дані минулих подій</td><td>90 днів після події</td></tr>
+      <tr><td>Дані платежів</td><td>3 роки (вимога законодавства)</td></tr>
+      <tr><td>Логи модерації</td><td>1 рік</td></tr>
+      <tr><td>Підтвердження 18+ та ToS</td><td>3 роки</td></tr>
+    </table>
+
+    <h2><span class="num">06</span>Ваші права</h2>
+    <div class="rights-grid">
+      <div class="right-item">
+        <div class="right-name">Доступ</div>
+        <div class="right-how">Отримати копію своїх даних - supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Виправлення</div>
+        <div class="right-how">Редагування профілю або supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Видалення</div>
+        <div class="right-how">Команда /delete_account або supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Обмеження</div>
+        <div class="right-how">supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Заперечення</div>
+        <div class="right-how">supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Портабельність</div>
+        <div class="right-how">Дані у машиночитаному форматі - supportdarkroom@gmail.com</div>
+      </div>
+    </div>
+    <p>Ми відповідаємо на запити щодо персональних даних протягом <strong>30 днів</strong>.</p>
+
+    <h2><span class="num">07</span>Cookie та трекери</h2>
+    <p>Бот не використовує файли cookie, піксельні трекери або аналітику третіх сторін. Єдина аналітика - внутрішня статистика без ідентифікації конкретних осіб.</p>
+
+    <h2><span class="num">08</span>Діти</h2>
+    <div class="warn-box">
+      <strong>⚠ Вікові обмеження</strong>
+      Сервіс не призначений для осіб молодше 18 років. Якщо нам стане відомо, що дані дитини були зібрані, ми негайно їх видалимо.
+    </div>
+
+    <h2><span class="num">09</span>Статус посередника та контент користувачів</h2>
+    <div class="warn-box">
+      <strong>⚠ Важливе застереження</strong>
+      Dark Room є виключно технічною платформою-посередником. Весь контент - анкети, фото, описи, події - створюється та публікується виключно користувачами. Оператор Сервісу не є автором, редактором або розповсюджувачем цього контенту і не несе відповідальності за його зміст, достовірність або наслідки використання.
+    </div>
+    <div class="clause" data-num="9.1">Ми здійснюємо модерацію контенту, проте модерація не означає редакційного контролю або схвалення контенту з нашого боку.</div>
+    <div class="clause" data-num="9.2">Ми не несемо відповідальності за будь-які збитки - прямі, непрямі або наслідкові - що виникли внаслідок взаємодій між користувачами або використання контенту, розміщеного у Сервісі.</div>
+    <div class="clause" data-num="9.3">Якщо вам стало відомо про незаконний контент - негайно повідомте нас через supportdarkroom@gmail.com або кнопку «Поскаржитись».</div>
+
+    <h2><span class="num">10</span>Зміни до цієї Політики</h2>
+    <p>Про суттєві зміни ми повідомимо через Бот не менш ніж за 7 днів до набрання ними чинності. Продовження використання Сервісу означає вашу згоду з оновленою Політикою.</p>
+
+    <div class="contact-block">
+      <div class="label">Питання щодо персональних даних</div>
+      <a href="mailto:supportdarkroom@gmail.com">supportdarkroom@gmail.com</a>
+    </div>
+
+  </div><!-- /lang-uk -->
+
+  <!-- ═══════════ ENGLISH ═══════════ -->
+  <div class="lang-section" id="lang-en">
+
+    <h2><span class="num">01</span>Who We Are</h2>
+    <p>Dark Room ("Operator", "We") is an independent Telegram bot. Contact address for personal data inquiries: <strong>supportdarkroom@gmail.com</strong> (Telegram).</p>
+
+    <h2><span class="num">02</span>What Data We Collect</h2>
+
+    <h3>Data you provide directly</h3>
+    <table>
+      <tr><th>Data Type</th><th>Where Used</th></tr>
+      <tr><td>Telegram user ID and username</td><td>Identification, sharing contact after match</td></tr>
+      <tr><td>Name (entered by you)</td><td>Profile, displayed to others</td></tr>
+      <tr><td>Short description (bio)</td><td>Profile</td></tr>
+      <tr><td>Profile photos (1–3)</td><td>Stored as Telegram file_id</td></tr>
+      <tr><td>Age confirmation + timestamp</td><td>Legal requirement, not shown to others</td></tr>
+      <tr><td>Time of Terms acceptance</td><td>Legal requirement</td></tr>
+      <tr><td>Selected interface language</td><td>Personalization</td></tr>
+    </table>
+
+    <h3>Data about your actions</h3>
+    <table>
+      <tr><th>Data Type</th><th>Where Used</th></tr>
+      <tr><td>Event registrations</td><td>"My Events" section, forming groups for introductions</td></tr>
+      <tr><td>Likes and passes</td><td>Finding matches, not shown to others individually</td></tr>
+      <tr><td>Matches</td><td>Sending mutual contact</td></tr>
+      <tr><td>Created events</td><td>Displayed in the catalog</td></tr>
+      <tr><td>Reports</td><td>Moderation</td></tr>
+    </table>
+
+    <h3>Payment data</h3>
+    <p>We store: order_id, amount, status, and payment timestamp.</p>
+    <div class="info-box">
+      <strong>ℹ Note</strong>
+      We do not store and do not have access to payment details. Transactions are processed by the payment provider in accordance with their privacy policy.
+    </div>
+
+    <h3>Data we do NOT collect</h3>
+    <ul class="list">
+      <li>your phone number (Telegram does not share it with bots);</li>
+      <li>real-time precise geolocation;</li>
+      <li>content of private messages outside the bot dialogue;</li>
+      <li>any data beyond your interaction with the bot.</li>
+    </ul>
+
+    <h2><span class="num">03</span>How We Use Your Data</h2>
+    <table>
+      <tr><th>Purpose</th><th>Legal Basis</th></tr>
+      <tr><td>Providing Service features</td><td>Contract performance (Art. 6(1)(b) GDPR)</td></tr>
+      <tr><td>Content moderation and security</td><td>Legitimate interest of the operator</td></tr>
+      <tr><td>Age verification and Terms acceptance</td><td>Legal obligation</td></tr>
+      <tr><td>Payment processing</td><td>Contract performance</td></tr>
+      <tr><td>Sending notifications</td><td>Contract performance</td></tr>
+    </table>
+    <p>We do <strong>not</strong> use your data for targeted advertising, selling to third parties, or automated decision-making with legal consequences.</p>
+
+    <h2><span class="num">04</span>Who We Share Data With</h2>
+
+    <h3>Other Service users</h3>
+    <p>Your name, photo, and bio are visible in the context of shared events. Your Telegram username is shared only with the person with whom you received a mutual like.</p>
+
+    <h3>Technical contractors</h3>
+    <table>
+      <tr><th>Contractor</th><th>Purpose</th><th>Country</th></tr>
+      <tr><td>Hetzner Online GmbH</td><td>Server and database hosting</td><td>Germany / EU</td></tr>
+      <tr><td>Telegram Messenger Inc.</td><td>Message delivery platform and payment processing</td><td>USA / EU</td></tr>
+    </table>
+
+    <h3>Law enforcement</h3>
+    <p>We may disclose data upon a lawful request from competent authorities in accordance with applicable law.</p>
+
+    <h2><span class="num">05</span>Data Storage and Security</h2>
+    <p>Data is stored on secure servers within the EU (Hetzner, Germany). We apply encrypted connections (TLS), restricted database access, and regular backups.</p>
+
+    <h3>Retention periods</h3>
+    <table>
+      <tr><th>Data Type</th><th>Retention Period</th></tr>
+      <tr><td>Active profile data</td><td>Until account deletion</td></tr>
+      <tr><td>Likes / passes</td><td>7 days</td></tr>
+      <tr><td>Past event data</td><td>90 days after the event</td></tr>
+      <tr><td>Payment data</td><td>3 years (legal requirement)</td></tr>
+      <tr><td>Moderation logs</td><td>1 year</td></tr>
+      <tr><td>Age confirmation and ToS acceptance</td><td>3 years</td></tr>
+    </table>
+
+    <h2><span class="num">06</span>Your Rights</h2>
+    <div class="rights-grid">
+      <div class="right-item">
+        <div class="right-name">Access</div>
+        <div class="right-how">Receive a copy of your data - supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Rectification</div>
+        <div class="right-how">Profile editing or supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Erasure</div>
+        <div class="right-how">/delete_account command or supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Restriction</div>
+        <div class="right-how">supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Objection</div>
+        <div class="right-how">supportdarkroom@gmail.com</div>
+      </div>
+      <div class="right-item">
+        <div class="right-name">Portability</div>
+        <div class="right-how">Data in machine-readable format - supportdarkroom@gmail.com</div>
+      </div>
+    </div>
+    <p>We respond to personal data requests within <strong>30 days</strong>.</p>
+
+    <h2><span class="num">07</span>Cookies and Trackers</h2>
+    <p>The bot does not use cookies, pixel trackers, or third-party analytics. The only analytics are internal statistics without identifying specific individuals.</p>
+
+    <h2><span class="num">08</span>Children</h2>
+    <div class="warn-box">
+      <strong>⚠ Age Restriction</strong>
+      The Service is not intended for persons under 18 years of age. If we become aware that a child's data has been collected, we will delete it immediately.
+    </div>
+
+    <h2><span class="num">09</span>Intermediary Status and User Content</h2>
+    <div class="warn-box">
+      <strong>⚠ Important Notice</strong>
+      Dark Room is solely a technical intermediary platform. All content - profiles, photos, descriptions, events - is created and published exclusively by users. The Service operator is not the author, editor, or distributor of this content and is not responsible for its substance, accuracy, or consequences of its use.
+    </div>
+    <div class="clause" data-num="9.1">We moderate content in accordance with our Terms of Service; however, moderation does not constitute editorial control or endorsement of any content on our part.</div>
+    <div class="clause" data-num="9.2">We are not responsible for any damages - direct, indirect, or consequential - arising from interactions between users or from use of content posted in the Service.</div>
+    <div class="clause" data-num="9.3">If you become aware of illegal content - please notify us immediately via supportdarkroom@gmail.com or the "Report" button.</div>
+
+    <h2><span class="num">10</span>Changes to This Policy</h2>
+    <p>We will notify you of significant changes through the Bot at least 7 days before they take effect. Continued use of the Service constitutes your agreement to the updated Policy.</p>
+
+    <div class="contact-block">
+      <div class="label">Questions about personal data</div>
+      <a href="mailto:supportdarkroom@gmail.com">supportdarkroom@gmail.com</a>
+    </div>
+
+  </div><!-- /lang-en -->
+
+</div>
+
+<footer>
+  Dark Room &nbsp;·&nbsp; Privacy Policy v1.0 &nbsp;·&nbsp; 2025
+</footer>
+
+<script>
+  function setLang(lang, btn) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
